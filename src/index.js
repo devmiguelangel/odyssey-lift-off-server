@@ -17,10 +17,11 @@ const server = new ApolloServer({
 });
 
 // Server listening
-server.listen().then(() => {
-  console.log(`
-    🚀  Server is running!
-    🔉  Listening on port 4000
-    📭  Query at http://localhost:4000
-  `);
-});
+async function startApolloServer(server) {
+  const { url } = await server.listen({ port: process.env.PORT || 4000 });
+
+  console.log(`🚀  Server is running! at ${url}`);
+};
+
+startApolloServer(server);
+
