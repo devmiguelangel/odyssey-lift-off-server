@@ -61,9 +61,9 @@ type Module {
   " The Module's title "
   title: String!
   " The Module's length in minutes "
-  length: Int
+  length: Int @deprecated(reason: "Use durationInSeconds")
   " The track's full duration, in seconds "
-  durationInSeconds: Int @deprecated(reason: "Use durationInSeconds")
+  durationInSeconds: Int
 }
 `;
 
