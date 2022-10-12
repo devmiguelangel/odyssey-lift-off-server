@@ -33,7 +33,7 @@ type Track {
   " The track's main illustration to display in track card or track page detail "
   thumbnail: String
   " The track's approximate length to complete, in minutes "
-  length: Int
+  length: Int @deprecated(reason: "Use durationInSeconds")
   " The number of modules this track contains "
   modulesCount: Int
   " The track's complete description, can be in Markdown format "
@@ -42,6 +42,8 @@ type Track {
   numberOfViews: Int
   " The track's complete array of Modules "
   modules: [Module!]!
+  " The track's full duration, in seconds "
+  durationInSeconds: Int
 }
 
 " Author of a complete Track or a Module "
@@ -60,6 +62,8 @@ type Module {
   title: String!
   " The Module's length in minutes "
   length: Int
+  " The track's full duration, in seconds "
+  durationInSeconds: Int @deprecated(reason: "Use durationInSeconds")
 }
 `;
 
